@@ -8,11 +8,11 @@ var result = document.getElementById('result')
 
 
 //Slider Math
-range.ondrag = function(){
-    tipOutput.innerHTML = range.value + '%';
+range.oninput = function(){
+    tipOutput.innerHTML = this.value + '%';
+    
 }
-
-
+ 
 
 //Button to run
 
@@ -20,6 +20,9 @@ calcBtn.onclick = function(){
     var theBill = parseFloat(billTotal.value)
     var tip = (theBill * (range.value/100)).toFixed(2)
     var total = (theBill + parseFloat(tip)).toFixed(2)
-    var out = '<strong>TIP AMOUNT:</strong> $${tip}<br/><strong>TOTAL BILL:</strong> $${total}'
+    var out = `<strong>TIP AMOUNT:</strong> $${tip}<br/><strong>TOTAL BILL:</strong> $${total}`
+
     result.innerHTML = out
+    
+    
 }
